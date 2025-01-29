@@ -36,7 +36,7 @@ class DepositForm(TransactionForm):
 
         if amount < min_deposit_amount:
             raise forms.ValidationError(
-                f'You need to deposit at least {min_deposit_amount} $'
+                f'You need to deposit at least {min_deposit_amount} ₹'
             )
 
         return amount
@@ -56,17 +56,17 @@ class WithdrawForm(TransactionForm):
 
         if amount < min_withdraw_amount:
             raise forms.ValidationError(
-                f'You can withdraw at least {min_withdraw_amount} $'
+                f'You can withdraw at least {min_withdraw_amount} ₹'
             )
 
         if amount > max_withdraw_amount:
             raise forms.ValidationError(
-                f'You can withdraw at most {max_withdraw_amount} $'
+                f'You can withdraw at most {max_withdraw_amount} ₹'
             )
 
         if amount > balance:
             raise forms.ValidationError(
-                f'You have {balance} $ in your account. '
+                f'You have {balance} &#8377; in your account. '
                 'You can not withdraw more than your account balance'
             )
 
